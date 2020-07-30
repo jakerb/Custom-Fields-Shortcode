@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Custom Fields Shortcode
-Plugin URI: https://jakebown.com/#custom-fields-shortcode
+Plugin URI: https://jakerb.github.io/Custom-Fields-Shortcode/
 Description: Pull in custom fields or ACF into your posts or Elementor templates easily.
 Version: 1.0.3
 Author: Jake Bown
