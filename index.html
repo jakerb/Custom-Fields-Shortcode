@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Webpixels">
+    <title>Custom Fields Shortcode</title>
+    <!-- Preloader -->
+    <style>
+        @keyframes hidePreloader {
+            0% {
+                width: 100%;
+                height: 100%;
+            }
+
+            100% {
+                width: 0;
+                height: 0;
+            }
+        }
+
+        body>div.preloader {
+            position: fixed;
+            background: white;
+            width: 100%;
+            height: 100%;
+            z-index: 1071;
+            opacity: 0;
+            transition: opacity .5s ease;
+            overflow: hidden;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body:not(.loaded)>div.preloader {
+            opacity: 1;
+        }
+
+        body:not(.loaded) {
+            overflow: hidden;
+        }
+
+        body.loaded>div.preloader {
+            animation: hidePreloader .5s linear .5s forwards;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", function() {
+            setTimeout(function() {
+                document.querySelector('body').classList.add('loaded');
+            }, 300);
+        });
+    </script>
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/brand/favicon.png" type="image/png"><!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/libs/@fortawesome/fontawesome-free/css/all.min.css">
+    <!-- Quick CSS -->
+    <link rel="stylesheet" href="assets/css/quick-website.css" id="stylesheet">
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal-cookies" data-backdrop="false" aria-labelledby="modal-cookies" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-aside left-4 right-4 bottom-4">
+            <div class="modal-content bg-dark-dark">
+                <div class="modal-body">
+                    <!-- Text -->
+                    <p class="text-sm text-white mb-3">
+                        We use cookies so that our themes work for you. By using our website, you agree to our use of cookies.
+                    </p>
+                    <!-- Buttons -->
+                    <button type="button" class="btn btn-sm btn-primary mr-2" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Go Pro -->
+    <a href="https://webpixels.io/themes/quick-website-ui-kit" class="btn btn-block btn-dark text-truncate rounded-0 py-2 d-none d-lg-block" style="z-index: 1000;" target="_blank">
+        <strong>Want the source code? </strong> Click here to visit the Github page →
+    </a>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <!-- Brand -->
+            <strong><a class="navbar-brand" href="index.html">Custom Fields Shortcode</a></strong>
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mt-4 mt-lg-0 ml-auto">
+                    <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+                        <a class="nav-link" href="docs.html" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Docs</a>
+                        <div class="dropdown-menu dropdown-menu-single">
+                            <a href="docs.html#" class="dropdown-item">Get Started</a>
+                            <a href="docs.html#using-filters" class="dropdown-item">Using Filters</a>
+
+                            <div class="dropdown-divider"></div>
+                            <a href="docs.html#elementor" class="dropdown-item">CFS &amp; Elementor</a>
+                        </div>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="https://github.com/jakerb/Custom-Fields-Shortcode">Github</a>
+                    </li>
+                </ul>
+                <!-- Button -->
+                <a class="navbar-btn btn btn-sm btn-primary d-none d-lg-inline-block ml-3" href="https://github.com/jakerb/Custom-Fields-Shortcode">
+                    Download Free
+                </a>
+                <!-- Mobile button -->
+                <div class="d-lg-none text-center">
+                    <a href="https://webpixels.io/themes/quick-website-ui-kit" class="btn btn-block btn-sm btn-warning">See more details</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Main content -->
+    <section class="slice py-7">
+        <div class="container">
+            <div class="row row-grid align-items-center">
+                <div class="col-12 col-md-5 col-lg-6 order-md-2 text-center">
+                    <!-- Image -->
+                    <figure class="w-100">
+                        <img alt="Image placeholder" src="assets/img/svg/illustrations/illustration-3.svg" class="img-fluid mw-md-120">
+                    </figure>
+                </div>
+                <div class="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5">
+                    <!-- Heading -->
+                    <h1 class="display-4 text-center text-md-left mb-3">
+                        Make WP Custom Fields <strong class="text-primary">Super Dynamic</strong>.
+                    </h1>
+                    <!-- Text -->
+                    <p class="lead text-center text-md-left text-muted">
+                        Modify and display WP post meta and ACF fields in a single shortcode.
+                    </p>
+                    <!-- Buttons -->
+                    <div class="text-center text-md-left mt-5">
+                        <a href="https://github.com/jakerb/Custom-Fields-Shortcode" class="btn btn-primary btn-icon" target="_blank">
+                            <span class="btn-inner--text">Download for Free</span>
+                            <span class="btn-inner--icon"><i data-feather="chevron-right"></i></span>
+                        </a>
+                        <a href="docs.html" class="btn btn-neutral btn-icon d-none d-lg-inline-block">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="slice slice-lg pt-lg-6 pb-0 pb-lg-6 bg-section-secondary">
+        <div class="container">
+            <!-- Title -->
+            <!-- Section title -->
+            <div class="row mb-5 justify-content-center text-center">
+                <div class="col-lg-6">
+                    <span class="badge badge-soft-success badge-pill badge-lg">
+                        Get started
+                    </span>
+                    <h2 class=" mt-4">Take the pain out of using post meta in your websites</h2>
+                    <div class="mt-2">
+                        <p class="lead lh-180">Works with ACF and Elementor out of the box.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card -->
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body pb-5">
+                            <div class="pt-4 pb-5">
+                                <img src="assets/img/svg/illustrations/illustration-5.svg" class="img-fluid img-center" style="height: 150px;" alt="Illustration" />
+                            </div>
+                            <h5 class="h4 lh-130 mb-3">Super Easy to Use</h5>
+                            <p class="text-muted mb-0">Use it directly in the WYSIWYG editor within your page editor templates.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body pb-5">
+                            <div class="pt-4 pb-5">
+                                <img src="assets/img/svg/illustrations/illustration-6.svg" class="img-fluid img-center" style="height: 150px;" alt="Illustration" />
+                            </div>
+                            <h5 class="h4 lh-130 mb-3">Add Conditional Logic</h5>
+                            <p class="text-muted mb-0">Make your post meta content dynamic by applying custom filters and logic.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body pb-5">
+                            <div class="pt-4 pb-5">
+                                <img src="assets/img/svg/illustrations/illustration-7.svg" class="img-fluid img-center" style="height: 150px;" alt="Illustration" />
+                            </div>
+                            <h5 class="h4 lh-130 mb-3">Works out of the Box</h5>
+                            <p class="text-muted mb-0">You don't need additional plugins for it to work with your favourite page editor.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="slice slice-lg">
+        <div class="container">
+            <div class="py-6">
+                <div class="row row-grid justify-content-between align-items-center">
+                    <div class="col-lg-5 order-lg-2">
+                        <h5 class="h3">Want easy to configure Elementor template elements?</h5>
+                        <p class="lead my-4">
+                            Use CFS in your Elementor templates alongside it's dynamic data to deliver awesome page content.
+                        </p>
+                        <ul class="list-unstyled mb-0">
+                            <li class="py-2">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-shape bg-primary text-white icon-sm rounded-circle mr-3">
+                                            <i class="fas fa-file-invoice"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="h6 mb-0">Works with Elementor Loop Templates</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="py-2">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-shape bg-primary text-white icon-sm rounded-circle mr-3">
+                                            <i class="fas fa-store-alt"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="h6 mb-0">Easy to Setup and Maintain</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="card mb-0 mr-lg-5">
+                            <div class="card-body p-2">
+                                <img alt="Image placeholder" src="assets/img/theme/light/editor.png" class="img-fluid shadow rounded">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="py-6">
+                <div class="row row-grid justify-content-between align-items-center">
+                    <div class="col-lg-5">
+                        <h5 class="h3">Want to easily modify content without code?</h5>
+                        <p class="lead my-4">
+                            CFS comes with a number of pre-set filters to easily allow you to modify post meta and page content without editing a line of code.
+                        </p>
+                        <ul class="list-unstyled mb-0">
+                            <li class="py-2">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-shape bg-primary text-white icon-sm rounded-circle mr-3">
+                                            <i class="fas fa-file-invoice"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="h6 mb-0">Perfect for non-coders</span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="py-2">
+                                <div class="d-flex align-items-center">
+                                    <div>
+                                        <div class="icon icon-shape bg-primary text-white icon-sm rounded-circle mr-3">
+                                            <i class="fas fa-store-alt"></i>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span class="h6 mb-0">Easily add your own filters</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card mb-0 ml-lg-5">
+                            <div class="card-body p-2">
+                                <img alt="Image placeholder" src="assets/img/theme/light/gutenberg.png" class="img-fluid shadow rounded">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="slice slice-lg bg-section-dark pt-5 pt-lg-8">
+        <!-- SVG separator -->
+        <div class="shape-container shape-line shape-position-top shape-orientation-inverse">
+            <svg width="2560px" height="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" viewBox="0 0 2560 100" style="enable-background:new 0 0 2560 100;" xml:space="preserve" class="">
+                <polygon points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+        </div>
+        <!-- Container -->
+        <div class="container position-relative zindex-100">
+            <div class="col">
+                <div class="row justify-content-center">
+                    <div class="col-md-10 text-center">
+                        <div class="mt-4 mb-6">
+                            <h2 class="h1 text-white">
+                                Check out some Filters
+                            </h2>
+                            <h4 class="text-white mt-3">Once installed you can use these filters out of the box.</h4>
+                            <!-- Play button -->
+                            <a href="#" class="btn btn-primary btn-icon mt-4">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="slice pt-0 slice slice-lg bg-section-secondary">
+        <div class="container position-relative zindex-100">
+            <div class="row">
+                <div class="col-xl-4 col-sm-6 mt-n7">
+                    <div class="card">
+                        <div class="d-flex p-5">
+                            <div>
+                                <span class="badge badge-warning badge-pill">New</span>
+                            </div>
+                            <div class="pl-4">
+                                <h5 class="lh-130">Date Formatting</h5>
+                                <p class="text-muted mb-0">
+                                    Easily format date and time to display exactly as your clients requested.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-6 mt-sm-n7">
+                    <div class="card">
+                        <div class="d-flex p-5">
+                            <div>
+                                <span class="badge badge-warning badge-pill">New</span>
+                            </div>
+                            <div class="pl-4">
+                                <h5 class="lh-130">Find and Replace</h5>
+                                <p class="text-muted mb-0">
+                                    Easily find and replace text occurances within your content.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-12 col-sm-6 mt-xl-n7">
+                    <div class="card">
+                        <div class="d-flex p-5">
+                            <div>
+                                <span class="badge badge-warning badge-pill">New</span>
+                            </div>
+                            <div class="pl-3">
+                                <h5 class="lh-130">Text Formatting</h5>
+                                <p class="text-muted mb-0">
+                                    Easily format URL's, encode and format text case.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-sm-6">
+                    <div class="card">
+                        <div class="d-flex p-5">
+                            <div>
+                                <span class="badge badge-warning badge-pill">New</span>
+                            </div>
+                            <div class="pl-4">
+                                <h5 class="lh-130">Show &amp; Hide</h5>
+                                <p class="text-muted mb-0">
+                                    Show and Hide content based on if it contains a certain text.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-6">
+                    <div class="card">
+                        <div class="d-flex p-5">
+                            <div>
+                                <span class="badge badge-warning badge-pill">New</span>
+                            </div>
+                            <div class="pl-4">
+                                <h5 class="lh-130">Post Content</h5>
+                                <p class="text-muted mb-0">
+                                    CFS also works with post content as well as post meta.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-12 col-sm-6">
+                    <div class="card">
+                        <div class="d-flex p-5">
+                            <div>
+                                <span class="badge badge-danger badge-pill">Update</span>
+                            </div>
+                            <div class="pl-3">
+                                <h5 class="lh-130">More to Come</h5>
+                                <p class="text-muted mb-0">
+                                    More default filters will be added to the next update.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="position-relative" id="footer-main">
+        <div class="footer pt-lg-7 footer-dark bg-dark">
+            <!-- SVG shape -->
+            <div class="shape-container shape-line shape-position-top shape-orientation-inverse">
+                <svg width="2560px" height="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" viewBox="0 0 2560 100" style="enable-background:new 0 0 2560 100;" xml:space="preserve" class=" fill-section-secondary">
+                    <polygon points="2560 0 2560 100 0 100"></polygon>
+                </svg>
+            </div>
+            <!-- Footer -->
+            <div class="container pt-4">
+                <div class="row">
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <!-- Theme's logo -->
+                        <strong><a class="navbar-brand" href="/">Custom Fields Shortcode</a></strong>
+                        <p class="mt-4 text-sm opacity-8 pr-lg-4">Custom Fields Shortcode (CFS) is a side project created by <a href="https://jakebown.com?ref=custom_fields_shortcode">Jake</a>. If you like this plugin then please let me know how you are using it and what would make it even better!</p>
+                    </div>
+                </div>
+                <hr class="divider divider-fade divider-dark my-4">
+                <div class="row align-items-center justify-content-md-between pb-4">
+                    <div class="col-md-6">
+                        <div class="copyright text-sm font-weight-bold text-center text-md-left">
+                            &copy; 2020 <a href="https://jakebown.com" class="font-weight-bold" target="_blank">Made by Jake</a>. All rights reserved
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="nav justify-content-center justify-content-md-end mt-3 mt-md-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://github.com/jakerb" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://twitter.com/jakebown1" target="_blank">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://codepen.io/jakebown/" target="_blank">
+                                    <i class="fab fa-codepen"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Core JS  -->
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/svg-injector/dist/svg-injector.min.js"></script>
+    <script src="assets/libs/feather-icons/dist/feather.min.js"></script>
+    <!-- Quick JS -->
+    <script src="assets/js/quick-website.js"></script>
+    <!-- Feather Icons -->
+    <script>
+        feather.replace({
+            'width': '1em',
+            'height': '1em'
+        })
+    </script>
+</body>
+
+</html>
