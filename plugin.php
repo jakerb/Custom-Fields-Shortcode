@@ -226,7 +226,7 @@ if(!class_exists('CFS_Core')) {
 						}
 					}
 
-					return is_object($post_obj) && isset($post_obj->value) ? $post_obj->value : $post_meta;
+					return isset($post_obj) && is_object($post_obj) && isset($post_obj->value) ? $post_obj->value : $post_meta;
 
 				});
 
